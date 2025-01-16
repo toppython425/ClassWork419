@@ -24,7 +24,8 @@ class Cart:
 
     def remove_item(self, name):
         # self.items = [item for item in self.items if item['name'] != name] # тут мы пересобираем список
-        for item in self.items:  # тут мы удалям элемент из списка, если найдена соответствующая позиция
+        # помещая туда те элементы имя которых не равно переданному в метод имени
+        for item in self.items:  # тут мы удалям элемент из списка, если найдено имя которое передано в метод
             if item['name'] == name:
                 self.items.remove(item)
 
