@@ -23,7 +23,10 @@ class Cart:
         self.items.append({"name": name, 'price': price, 'quantity': quantity})
 
     def remove_item(self, name):
-        self.items = [item for item in self.items if item['name'] != name]
+        # self.items = [item for item in self.items if item['name'] != name] # тут мы пересобираем список
+        for item in self.items:  # тут мы удалям элемент из списка, если найдена соответствующая позиция
+            if item['name'] == name:
+                self.items.remove(item)
 
     def __len__(self):
         return len(self.items)
@@ -37,6 +40,8 @@ class Cart:
 cart1 = Cart()
 cart1.add_item("Apples", 50, 2)
 cart1.add_item("Milk", 80, 1)
+cart1.add_item("Coffe", 150, 1)
+cart1.remove_item("Coffe")
 
 cart2 = Cart()
 cart2.add_item('Bread', 40, 1)
